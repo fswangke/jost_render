@@ -1,7 +1,7 @@
 function generateMergedModels(filename)
-load ../C.mat;
-load ../computedPos.mat;
-load ../models.mat;
+load ./C.mat;
+load ./computedPos.mat;
+load ./models.mat;
 
 numPeople = size(calculatedPos, 2);
 
@@ -10,7 +10,7 @@ isRotate = randi([0, 3], numPeople, 1);
 
 vertex = [];
 faces = [];
-for i = 1 : numPeople
+for i = 1 : 2 : numPeople
     curVtxNum = size(vertex, 1);
     [v, f] = generatePeopleModel(models, calculatedPos(:, i), gender(i), isRotate(i));
     vertex = [vertex; v];
